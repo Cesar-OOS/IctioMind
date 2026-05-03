@@ -1,6 +1,8 @@
-DROP DATABASE IF EXISTS n8n_tuleto;
-CREATE DATABASE n8n_tuleto;
-USE n8n_tuleto;
+DROP DATABASE IF EXISTS IctioMind_BD;
+
+CREATE DATABASE IctioMind_BD;
+
+USE IctioMind_BD;
 
 CREATE TABLE catalogo_especies(
     id_especie INT AUTO_INCREMENT PRIMARY KEY,
