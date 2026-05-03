@@ -1,0 +1,8 @@
+{
+  "id_sensor": "SN-001",
+  "id_estanque": 1,
+  "temperatura": 26.5,
+  "ph": 7.2,
+  "oxigeno_disuelto": 6.8,
+  "dureza": 120.0
+}
