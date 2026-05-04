@@ -10,10 +10,12 @@ CREATE TABLE catalogo_especies(
     temp_min DECIMAL(10,2),
     temp_max DECIMAL(10,2),
     oxigeno_min DECIMAL(10,2),
+    oxigeno_max DECIMAL(10,2),
     ph_min DECIMAL(10,2),
     ph_max DECIMAL(10,2),
     dureza_min DECIMAL(10,2),
-    dureza_max DECIMAL(10,2)
+    dureza_max DECIMAL(10,2),
+    tipo VARCHAR(20)
 );
 
 CREATE TABLE estanques(
@@ -72,3 +74,32 @@ CREATE TABLE pronosticos_clima(
 CREATE INDEX idx_estanque_fecha ON lecturas_telemetria (id_estanque, fecha_hora);
 CREATE INDEX idx_especies ON catalogo_especies(nombre_comun);
 CREATE INDEX idx_clima_objetivo ON pronosticos_clima (fecha_hora_objetivo);
+
+
+-- Insersión de Datos
+insert into catalogo_especies (nombre_comun, temp_min, temp_max, oxigeno_min, oxigeno_max, ph_min, ph_max, dureza_min, dureza_max, tipo)
+							  VALUES ("Tilapia",26,30,5,8,6.5,8.5,150,300,"Consumo"),
+									 ("Salmon",12,16,8,11,6.5,8,50,150,"Consumo"),
+									 ("Bagre",25,30,5,8,6.5,8.5,100,250,"Consumo"),
+									 ("Betta",24,28,4,7,6.5,7.5,50,150,"Ornato"),
+									 ("Pez Angel",25,29,5,7,6.0,7.2,30,120,"Ornato");
+
+insert into estanques (nombre_ubicacion, volumen_litros) VALUES ("Superior-Izquierdo",5),
+																("Superior-Izquierdo",10),
+																("Superior-Izquierdo",20),
+																("Superior-Izquierdo",20),
+																("Superior-Izquierdo",5);
+                             
+insert into habitantes_estanques VALUES (1,1,"2026-05-03"),
+										(2,2,"2026-05-03"),
+                                        (3,3,"2026-05-03"),
+                                        (4,4,"2026-05-03"),
+                                        (5,5,"2026-05-03");
+
+insert into sensores_inventario VALUES (1,1,null),
+									   (2,2,null),
+                                       (3,3,null),
+                                       (4,4,null),
+                                       (5,5,null);
+
+select * from lecturas_telemetria;
