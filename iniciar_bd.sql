@@ -102,4 +102,7 @@ insert into sensores_inventario VALUES (1,1,null),
                                        (4,4,null),
                                        (5,5,null);
 
+
 select * from lecturas_telemetria;
+
+delete from lecturas_telemetria;
