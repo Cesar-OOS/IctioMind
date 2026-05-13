@@ -105,4 +105,4 @@ insert into sensores_inventario VALUES (1,1,null),
 
 select * from lecturas_telemetria;
 
-delete from lecturas_telemetria;
+DELETE FROM lecturas_telemetria WHERE id_estanque IN (1, 2);)

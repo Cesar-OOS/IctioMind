@@ -35,10 +35,11 @@ class PayloadSensor(BaseModel):
 # ==========================================
 # 2. LÓGICA DE PROCESAMIENTO (Capa de Servicio)
 # ==========================================
-def inyectar_lecturas_bd(payloads: List[PayloadSensor]) -> dict:
+# Modificamos la función para aceptar una lista de estanques a limpiar
+def inyectar_lecturas_bd(payloads: List[PayloadSensor], estanques_a_limpiar: List[int] = None) -> dict:
     conexion = None
     try:
-        # AQUÍ ESTÁ LA MAGIA: Tomamos una conexión prestada del Pool
+        # Tomamos una conexión prestada del Pool
         conexion = get_db_connection()
         
         if not conexion:
@@ -46,6 +47,18 @@ def inyectar_lecturas_bd(payloads: List[PayloadSensor]) -> dict:
 
         if conexion.is_connected():
             with conexion.cursor(dictionary=True) as cursor:
+                
+                # ---------------------------------------------------------
+                # NUEVO: LIMPIEZA AUTOMÁTICA ANTES DE INYECTAR
+                # ---------------------------------------------------------
+                if estanques_a_limpiar:
+                    # Creamos la sentencia SQL dinámicamente (%s, %s)
+                    placeholders = ', '.join(['%s'] * len(estanques_a_limpiar))
+                    query_limpieza = f"DELETE FROM lecturas_telemetria WHERE id_estanque IN ({placeholders})"
+                    cursor.execute(query_limpieza, tuple(estanques_a_limpiar))
+                    print(f"🧹 Limpieza completada: Se borró el historial previo de los estanques {estanques_a_limpiar}")
+                # ---------------------------------------------------------
+
                 registros_insertados = 0
 
                 for item in payloads:
@@ -82,16 +95,15 @@ def inyectar_lecturas_bd(payloads: List[PayloadSensor]) -> dict:
                     cursor.execute(query_insert, valores)
                     registros_insertados += 1
 
-                conexion.commit()
-                return {"status": "success", "insertados": registros_insertados}
+            # Confirmamos tanto el borrado como la nueva inserción
+            conexion.commit()
+            return {"status": "success", "insertados": registros_insertados}
 
     except Exception as e:
-        if conexion: conexion.rollback()
+        if conexion: conexion.rollback() # Si algo falla, deshace el borrado y la inserción
         return {"status": "error", "message": str(e)}
     
     finally:
-        # En el sistema de Pool, 'close()' NO destruye la conexión, 
-        # simplemente la limpia y la devuelve al pool para que otro archivo la use.
         if conexion and conexion.is_connected():
             conexion.close()
 
@@ -118,9 +130,12 @@ if __name__ == "__main__":
             else:
                 lista_lecturas = [PayloadSensor(**item) for item in data]
 
-            # Inyectar en la BD
-            print("🚀 Iniciando inyección de datos sintéticos...")
-            resultado = inyectar_lecturas_bd(lista_lecturas)
+            # Inyectar en la BD y decirle qué estanques resetear
+            print("🚀 Iniciando limpieza e inyección de datos sintéticos...")
+            
+            # AQUÍ ES DONDE LE INDICAMOS LOS ESTANQUES A BORRAR (1 y 2)
+            resultado = inyectar_lecturas_bd(lista_lecturas, estanques_a_limpiar=[1, 2, 3, 4, 5])
+            
             print(f"✅ Proceso terminado: {resultado}")
 
         except Exception as e:

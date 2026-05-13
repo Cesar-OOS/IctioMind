@@ -1,0 +1,134 @@
+[
+    {
+        "metadata": {
+            "id_sensor": 1,
+            "id_estanque": 1,
+            "timestamp": "2026-05-12 20:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 7.5,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 2,
+            "id_estanque": 2,
+            "timestamp": "2026-05-12 20:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 7.0,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 1,
+            "id_estanque": 1,
+            "timestamp": "2026-05-12 21:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 6.8,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 2,
+            "id_estanque": 2,
+            "timestamp": "2026-05-12 21:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 6.4,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 1,
+            "id_estanque": 1,
+            "timestamp": "2026-05-12 22:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 6.0,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 2,
+            "id_estanque": 2,
+            "timestamp": "2026-05-12 22:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 5.9,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 1,
+            "id_estanque": 1,
+            "timestamp": "2026-05-12 23:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 5.2,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 2,
+            "id_estanque": 2,
+            "timestamp": "2026-05-12 23:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 5.5,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 1,
+            "id_estanque": 1,
+            "timestamp": "2026-05-13 00:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 4.8,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 2,
+            "id_estanque": 2,
+            "timestamp": "2026-05-13 00:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 5.2,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 1,
+            "id_estanque": 1,
+            "timestamp": "2026-05-13 01:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 4.2,
+            "dureza_actual": 140.0
+        }
+    },
+    {
+        "metadata": {
+            "id_sensor": 2,
+            "id_estanque": 2,
+            "timestamp": "2026-05-13 01:16:57",
+            "ph_actual": 7.2,
+            "temperatura_agua_actual": 25.5,
+            "oxigeno_disuelto_actual": 5.1,
+            "dureza_actual": 140.0
+        }
+    }
+]
